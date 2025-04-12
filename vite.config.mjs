@@ -34,7 +34,7 @@ export default defineConfig(({ mode }) => {
       port: PORT
     },
     // base: API_URL,
-    base: './',
+    base: env.VITE_APP_BASE_NAME || './',
     plugins: [react(), jsconfigPaths(), tailwindcss()]
   };
 });
