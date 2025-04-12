@@ -15,36 +15,26 @@ export default defineConfig(({ mode }) => {
       port: 3000,
       proxy: {
         '/api': {
-            target: 'http://localhost:5000', // Backend URL
-            changeOrigin: true,
-            rewrite: (path) => path.replace(/^\/api/, ''),
-        },
-    }, // Specify the port
+          target: 'http://localhost:5000', // Backend URL
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, '')
+        }
+      }, // Specify the port
       hmr: {
-        clientPort: 3000,
-      },
+        clientPort: 3000
+      }
     },
     define: {
       global: 'window'
     },
-    resolve: {
-      //     alias: [
-      //       {
-      //         find: /^~(.+)/,
-      //         replacement: path.join(process.cwd(), 'node_modules/$1')
-      //       },
-      //       {
-      //         find: /^src(.+)/,
-      //         replacement: path.join(process.cwd(), 'src/$1')
-      //       }
-      //     ]
-    },
+    resolve: {},
     preview: {
       // this ensures that the browser opens upon preview start
       open: true,
       port: PORT
     },
-    base: API_URL,
+    // base: API_URL,
+    base: './',
     plugins: [react(), jsconfigPaths(), tailwindcss()]
   };
 });
